@@ -125,7 +125,6 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
     for (var i = 0; i < numbers.length; i++){
       if(numbers[i] === random) {
         return true;
-
     }
   } return false;
   }
@@ -152,6 +151,22 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+  function removeItem(myGroceryList, item){
+      if(myGroceryList.indexOf(item) < 0){
+
+      } else {
+        myGroceryList.splice(myGroceryList.indexOf(item), 1)
+
+      }
+      return myGroceryList
+    }
+
+    function addItem(myGroceryList, item){
+      if(myGroceryList.indexOf(item) === -1 ){
+        myGroceryList.push(item);
+      }
+     return myGroceryList;
+    }
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -165,7 +180,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+function maker(){
+  var make = [];
+  for (var i = 1; i < 216; i++){
+    make.push(i);
+  }
+  return make;
+}
 
 
 //Next Problem
@@ -177,8 +198,23 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 
+// function addTen(numbers){
+//   var newArr = []
+//   for (var i = 0; i < numbers.length; i++){
+//     i + 10;
+//     newArr.push(i);
+//   }
+//   return newArr;
+// }
+
+function addTen(arr){
+  var newArr = arr.map( function( num ) {
+   return Number(num) + 10;
+})
+return newArr;
 
 
+}
 
 
 //Next Problem
@@ -199,7 +235,7 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+var longer = (arr1, arr2) => arr1.length > arr2.length ? arr1 : arr2;
 
 /*
 As a continuation of the previous problem, write another function called 'both'.
@@ -213,7 +249,12 @@ Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 
   //Code Here
 
-
+function both (arr1, arr2) {
+  var newArr = arr1.filter(function(value){ // return an array
+    return arr2.includes(value); // .includes -> Boolean
+  })
+  return newArr;
+}
 
 
 //NEXT PROBLEM
@@ -252,11 +293,26 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
+function addObjects(){
+  devMountainEmployees.push(tyler, cahlan,ryan, colt);
+}
 
+addObjects();
+console.log(devMountainEmployees.length);
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
+function remove(person){
+  for (var i = 0; i < devMountainEmployees.length; i++){
+    if(devMountainEmployees[i].name === 'Cahlan'){
+      devMountainEmployees.splice(i, 1)
+    }
+  }
+  return devMountainEmployees;
+};
+
+remove(cahlan);
 
 
 
@@ -270,6 +326,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+  var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -283,6 +340,19 @@ var user1 = {
 };
 
 //Your Code Here
+var user2 = {
+    name: 'Tyler McGinnis',
+    email: 'tylermcginnis33@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
+};
+
+var user3 = {
+    name: 'Tyler McGinnis',
+    email: 'tylermcginnis33@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
+};
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -293,5 +363,6 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+
 
 //The activity we just did is very much how data works in 'the real world'.
